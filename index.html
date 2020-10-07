@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Liste d'exercice de musculation</title>
+    <link rel="stylesheet" href="decoration/application.css">
+    <script src="modele/Exercice.js"></script>
+    <script src="donnee/ExerciceDAO.js"></script>
+    <script src="vue/VueListeExercice.js"></script>
+    <script src="vue/VueAjouterExercice.js"></script>
+    <script defer src="Application.js"></script>
+</head>
+<body>
+    <div id="page-chargement-application">Chargement de l'application</div>
+
+    <script type="plain/text" id="html-vue-liste-exercice">
+    <div class="page">
+        <h1>Liste d'exercice de musculation</h1>
+        <a class="action" href="#ajouter-exercice">Ajouter un exercice</a>
+        <ul id="liste-exercice">
+          <li><a href="#exercice/{Exercice.id}" class="liste-exercice-item">{Exercice.nom}</a></li>
+        </ul>
+      </div>
+    </script>
+
+    <script type="plain/text" id="html-vue-ajouter-exercice">
+    <div class="page">
+        <h1>Ajouter un exercice</h1>
+        <form id="formulaire-ajouter">
+          <fieldset>
+            <legend>Identification de l'exercice</legend>
+            <div>
+              <label for="exercice-nom">Nom</label>
+              <input type="text" id="exercice-nom"/>
+            </div>
+            <div>
+              <label for="exercice-muscle">Muscle</label>
+              <input type="text" id="exercice-muscle"/>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>D&eacute;tails sur le exercice</legend>
+            <div>
+              <label for="exercice-description">Description</label>
+              <textarea id="exercice-description"></textarea>
+            </div>
+          </fieldset>
+          <input class="action" type="submit" id="enregistrer" value="Enregistrer"/>
+        </form>
+        <a href="#" class="action">Annuler et revenir &agrave; la liste</a>
+      </div>
+    </script>
+</body>
+</html>
