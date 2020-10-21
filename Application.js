@@ -1,5 +1,5 @@
 class Application {
-    constructor(window, exerciceDAO, vueListeExercice, vueAjouterExercice, vueExercice){
+    constructor(window, exerciceDAO, vueListeExercice, vueAjouterExercice, vueExercice, vueModifierExercice){
         this.window = window;
         this.exerciceDAO = exerciceDAO;
 
@@ -7,8 +7,11 @@ class Application {
 
         this.vueExercice = vueExercice;
 
+        this.vueModifierExercice = vueModifierExercice;
+
         this.vueAjouterExercice = vueAjouterExercice;
         this.vueAjouterExercice.initialiserActionAjouterExercice(exercice =>this.actionAjouterExercice(exercice));
+        this.vueModifierExercice.initialiserActionModifierExercice(exercice =>this.actionModifierExercice(exercice));
         this.window.addEventListener("hashchange", () => this.naviguer());
         this.naviguer();
     }
@@ -31,12 +34,24 @@ class Application {
             this.vueExercice.initialiserExercice(this.exerciceDAO.lister()[idExercice]);
             this.vueExercice.afficher();
         }
+        else if(hash.match(/^#modifier-exercice\/([0-9]+)/)){
+            let navigation = hash.match(/^#modifier-exercice\/([0-9]+)/);
+            let idExercice = navigation[1];
+
+            this.vueModifierExercice.initialiserExercice(this.exerciceDAO.lister()[idExercice]);
+            this.vueModifierExercice.afficher();
+        }
     }
 
     actionAjouterExercice(exercice){
         this.exerciceDAO.ajouter(exercice);
         this.window.location.hash = "#";
     }
+
+    actionModifierExercice(exercice){
+        this.exerciceDAO.modifier(exercice);
+        this.window.location.hash = "#";
+    }
 }
 
-new Application(window, new ExerciceDAO(), new VueListeExercice(), new VueAjouterExercice(), new VueExercice());
+new Application(window, new ExerciceDAO(), new VueListeExercice(), new VueAjouterExercice(), new VueExercice(), new VueModifierExercice());

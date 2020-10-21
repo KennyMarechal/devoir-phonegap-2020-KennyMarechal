@@ -29,6 +29,15 @@ class ExerciceDAO{
 
         localStorage['exercice'] = JSON.stringify(this.listeExercice);
 
+        //console.log("JSON.stringify(this.listeExercice): " + JSON.stringify(this.listeExercice));
+    }
+
+    modifier(exercice){
+
+        this.listeExercice[exercice.id] = exercice;
+
+        localStorage['exercice'] = JSON.stringify(this.listeExercice);
+
         console.log("JSON.stringify(this.listeExercice): " + JSON.stringify(this.listeExercice));
     }
 }

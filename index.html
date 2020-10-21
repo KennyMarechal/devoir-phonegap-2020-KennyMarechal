@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="decoration/application.css">
     <script src="modele/Exercice.js"></script>
     <script src="donnee/ExerciceDAO.js"></script>
+    <script src="vue/VueModifierExercice.js"></script>
     <script src="vue/VueExercice.js"></script>
     <script src="vue/VueListeExercice.js"></script>
     <script src="vue/VueAjouterExercice.js"></script>
@@ -19,7 +20,7 @@
         <a class="action" href="#ajouter-exercice">Ajouter un exercice</a>
         <ul id="liste-exercice">
           <li><a href="#exercice/{Exercice.id}" class="liste-exercice-item">{Exercice.nom}</a>
-            <a href="#modifier-exercice/{Exercice.id}" class="liste-exercice-item">Modiffier</a></li>
+            <a href="#modifier-exercice/{Exercice.id}" class="liste-exercice-item">Modifier</a></li>
         </ul>
       </div>
     </script>
@@ -58,6 +59,33 @@
       <h2 id="exercice-nom"></h2>
       <p id="exercice-muscle"></p>
       <p id="exercice-description"></p>
+      <a href="#" class="action">Retour</a>
+    </div>
+  </script>
+
+  <script type="plain/text" id="html-vue-modifier-exercice">
+    <div class="page">
+      <form id="formulaire-modifier">
+        <fieldset>
+          <legend>Identification de l'exercice</legend>
+          <div>
+            <label for="exercice-nom">Nom</label>
+            <input type="text" id="exercice-nom-modifier"/>
+          </div>
+          <div>
+            <label for="exercice-muscle">Muscle</label>
+            <input id="exercice-muscle" type="text" />
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>D&eacute;tails sur l'exercice</legend>
+          <div>
+            <label for="exercice-description">Description</label>
+            <textarea id="exercice-description"></textarea>
+          </div>
+        </fieldset>
+        <input class="action" type="submit" id="modifier" value="Modifier"/>
+      </form>
       <a href="#" class="action">Retour</a>
     </div>
   </script>
