@@ -1,31 +1,11 @@
 ﻿@import "normalize.css" ;
 
-@font-face {
-  font-family: 'The Perfect Christmas';
-  src: url('font/the_perfect_christmas/The Perfect Christmas.ttf')  format('truetype');
-}
-
-@font-face {
-  font-family: 'Waving at Christmas';
-  src: url('font/waving_at_christmas/Waving at Christmas.ttf')  format('truetype');
-}
-
-@font-face {
-  font-family: 'Cream Cake';
-  src: url('font/cream_cake/Cream Cake.ttf')  format('truetype');
-}
-
-@font-face {
-  font-family: 'Hello Christmas Icon';
-  src: url('font/hello_christmas_icons/Hello-Christmas-Icon-trial.ttf')  format('truetype');
-}
-
 :root {
-  --theme-rouge: #fd341f;
+  --theme-rouge: #5c0509;
   --theme-blanc-transparent: rgba(255,255,255,0.3);
-  --theme-bleu-pale: rgba(151,219,246,1);
+  --theme-bleu-pale: rgb(4, 60, 82);
   --theme-bleu-fonce: rgba(63,155,191,1);
-  --theme-vert: #408450;
+  --theme-vert: #0b5014;
   --theme-blanc: white;
   --theme-noir: black;
 
@@ -42,6 +22,12 @@ html {
 }
 
 .liste-exercice-item {
+  color:var(--theme-noir);
+  text-transform : capitalize;
+  text-decoration:none;
+}
+
+.liste-exercice-modifier-item{
   color:var(--theme-rouge);
   text-transform : capitalize;
   text-decoration:none;
@@ -59,7 +45,6 @@ html {
 }
 
 #liste-exercice li::before {
-   content:"X";
    text-align:center;
    color:var(--theme-rouge);
    font-size:1.25rem;
@@ -120,8 +105,6 @@ textarea {
   }
 }
 
-
-
 .page {
   position:relative;
   background-color:var(--theme-bleu-pale);
@@ -129,7 +112,7 @@ textarea {
   min-height: 100vh;
   box-sizing: border-box;
 
-  background-image:url(illustration/cadeau-noel.png);
+  background-image:url(illustration/bicep.png);
   background-repeat:no-repeat;
   background-size:cover;
   background-position:right bottom;
@@ -159,13 +142,30 @@ textarea {
   padding:0.25rem;
 }
 
+.action-modifier{
+  text-decoration: none;
+  font-family:sans-serif;
+  background-color:#5c0509;
+  color:var(--theme-blanc);
+  border:0px transparent solid;
+  border-radius:var(--theme-bordure-rondeur);
+  padding:0.25rem;
+  font-size:0.50rem;
+  text-align:center;
+  width:30%;
+  margin:0 auto;
+  box-sizing: border-box;
+  margin-top:0.25rem;
+  margin-bottom:0.25rem;
+  box-shadow: 2px 2px var(--theme-blanc);
+}
 
 .action{
   position:relative;
   display:block;
   text-decoration: none;
   font-family:sans-serif;
-  background-color:#fd9f44;
+  background-color:#da0c0c;
   color:var(--theme-blanc);
   border:0px transparent solid;
   border-radius:var(--theme-bordure-rondeur);
