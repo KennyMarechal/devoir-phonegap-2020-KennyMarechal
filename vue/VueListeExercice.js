@@ -18,6 +18,7 @@ class VueListeExercice{
         for(var numeroExercice in this.listeExerciceDonnee){
             let listeExerciceItemHTMLRemplacement = listeExerciceItemHTML;
             listeExerciceItemHTMLRemplacement = listeExerciceItemHTMLRemplacement.replace("{Exercice.id}",this.listeExerciceDonnee[numeroExercice].id);
+            listeExerciceItemHTMLRemplacement = listeExerciceItemHTMLRemplacement.replace("{Exercice.id}",this.listeExerciceDonnee[numeroExercice].id);
             listeExerciceItemHTMLRemplacement = listeExerciceItemHTMLRemplacement.replace("{Exercice.nom}",this.listeExerciceDonnee[numeroExercice].nom);
             listeExerciceHTMLRemplacement += listeExerciceItemHTMLRemplacement;
         }

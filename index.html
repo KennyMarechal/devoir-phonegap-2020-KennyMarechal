@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="decoration/application.css">
     <script src="modele/Exercice.js"></script>
     <script src="donnee/ExerciceDAO.js"></script>
+    <script src="vue/VueExercice.js"></script>
     <script src="vue/VueListeExercice.js"></script>
     <script src="vue/VueAjouterExercice.js"></script>
     <script defer src="Application.js"></script>
@@ -17,7 +18,8 @@
         <h1>Liste d'exercice de musculation</h1>
         <a class="action" href="#ajouter-exercice">Ajouter un exercice</a>
         <ul id="liste-exercice">
-          <li><a href="#exercice/{Exercice.id}" class="liste-exercice-item">{Exercice.nom}</a></li>
+          <li><a href="#exercice/{Exercice.id}" class="liste-exercice-item">{Exercice.nom}</a>
+            <a href="#modifier-exercice/{Exercice.id}" class="liste-exercice-item">Modiffier</a></li>
         </ul>
       </div>
     </script>
@@ -46,8 +48,19 @@
           </fieldset>
           <input class="action" type="submit" id="enregistrer" value="Enregistrer"/>
         </form>
-        <a href="#" class="action">Annuler et revenir &agrave; la liste</a>
+        <a href="#" class="action">Retour</a>
       </div>
     </script>
+
+  <script type="plain/text" id="html-vue-exercice">
+    <div class="page">
+      <h1>Exercice</h1>
+      <h2 id="exercice-nom"></h2>
+      <p id="exercice-muscle"></p>
+      <p id="exercice-description"></p>
+      <a href="#" class="action">Retour</a>
+    </div>
+  </script>
+
 </body>
 </html>
