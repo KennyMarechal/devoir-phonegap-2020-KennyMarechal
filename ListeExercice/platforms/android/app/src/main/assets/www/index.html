@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--
+    Customize this policy to fit your own app's needs. For more guidance, see:
+        https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+    Some notes:
+        * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+        * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+        * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+            * Enable inline JS: add 'unsafe-inline' to default-src
+    -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    
+    <title>Liste d'exercice de Musculation</title>
+    <link rel="stylesheet" href="decoration/application.css">
+    <script src="cordova.js"></script>
+    <script src="modele/Exercice.js"></script>
+    <script src="donnee/ExerciceDAO.js"></script>
+    <script src="vue/VueModifierExercice.js"></script>
+    <script src="vue/VueExercice.js"></script>
+    <script src="vue/VueListeExercice.js"></script>
+    <script src="vue/VueAjouterExercice.js"></script>
+    <script defer src="Application.js"></script>
+</head>
+<body>
+    <div id="page-chargement-application">Chargement de l'application</div>
+
+    <script type="plain/text" id="html-vue-liste-exercice">
+    <div class="page">
+        <h1>Liste d'exercice de musculation</h1>
+        <a class="action" href="#ajouter-exercice">Ajouter un exercice</a>
+        <ul id="liste-exercice">
+          <li><a href="#exercice/{Exercice.id}" class="liste-exercice-item">{Exercice.nom}</a>
+            <a href="#modifier-exercice/{Exercice.id}" class="action-modifier">Modifier</a></li>
+        </ul>
+      </div>
+    </script>
+
+    <script type="plain/text" id="html-vue-ajouter-exercice">
+    <div class="page">
+        <h1>Ajouter un exercice</h1>
+        <form id="formulaire-ajouter">
+          <fieldset>
+            <legend>Identification de l'exercice</legend>
+            <div>
+              <label for="exercice-nom">Nom</label>
+              <input type="text" id="exercice-nom"/>
+            </div>
+            <div>
+              <label for="exercice-muscle">Muscle</label>
+              <input type="text" id="exercice-muscle"/>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>D&eacute;tails sur le exercice</legend>
+            <div>
+              <label for="exercice-description">Description</label>
+              <textarea id="exercice-description"></textarea>
+            </div>
+          </fieldset>
+          <input class="action" type="submit" id="enregistrer" value="Enregistrer"/>
+        </form>
+        <a href="#" class="action">Retour</a>
+      </div>
+    </script>
+
+  <script type="plain/text" id="html-vue-exercice">
+    <div class="page">
+      <h1>Exercice</h1>
+      <h2 id="exercice-nom"></h2>
+      <p id="exercice-muscle"></p>
+      <p id="exercice-description"></p>
+      <a href="#" class="action">Retour</a>
+    </div>
+  </script>
+
+  <script type="plain/text" id="html-vue-modifier-exercice">
+    <div class="page">
+      <form id="formulaire-modifier">
+        <fieldset>
+          <legend>Identification de l'exercice</legend>
+          <div>
+            <label for="exercice-nom">Nom</label>
+            <input type="text" id="exercice-nom-modifier"/>
+          </div>
+          <div>
+            <label for="exercice-muscle">Muscle</label>
+            <input id="exercice-muscle" type="text" />
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>D&eacute;tails sur l'exercice</legend>
+          <div>
+            <label for="exercice-description">Description</label>
+            <textarea id="exercice-description"></textarea>
+          </div>
+        </fieldset>
+        <input class="action" type="submit" id="modifier" value="Modifier"/>
+      </form>
+      <a href="#" class="action">Retour</a>
+    </div>
+  </script>
+
+</body>
+</html>
